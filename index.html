@@ -19,44 +19,41 @@
         radial-gradient(circle at 30% 35%, rgba(59, 130, 246, 0.22), transparent 22%),
         radial-gradient(circle at 60% 50%, rgba(236, 72, 153, 0.16), transparent 18%),
         linear-gradient(180deg, #172554 0%, #0f172a 45%, #020617 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       padding: 40px 20px;
     }
 
     .container {
       width: 100%;
-      max-width: 900px;
+      max-width: 1100px;
+      margin: auto;
       text-align: center;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 20px;
       color: #f8fafc;
     }
 
-    p {
-      max-width: 800px;
-      margin: 0 auto 16px;
-      line-height: 1.6;
-      color: #cbd5f5;
+    .subtitle {
+      max-width: 850px;
+      margin: auto;
+      line-height: 1.7;
+      color: #cbd5e1;
+      font-size: 1.05rem;
     }
 
-    /* Buttons layout */
     .button-grid {
-      margin-top: 40px;
+      margin-top: 45px;
       display: flex;
       flex-direction: column;
       gap: 20px;
       align-items: center;
     }
 
-    /* Shared button */
     .store-btn,
     .coming-soon {
-      width: 280px;
+      width: 300px;
       height: 90px;
       border-radius: 18px;
       background: rgba(30, 41, 59, 0.7);
@@ -64,26 +61,24 @@
       align-items: center;
       justify-content: center;
       padding: 10px;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
     }
 
     .store-btn:hover {
       transform: scale(1.05);
-      background: rgba(51, 65, 85, 0.9);
+      background: rgba(51, 65, 85, 0.95);
     }
 
-    /* Fix badge sizing */
     .store-btn img {
       height: 60px;
       width: auto;
     }
 
-    /* Apple fix (slightly bigger) */
     .store-btn.apple img {
       height: 72px;
     }
 
-    /* YouTube button */
     .youtube-btn {
       background: linear-gradient(180deg, #ff3b30, #ff0000);
       color: white;
@@ -102,7 +97,6 @@
       fill: white;
     }
 
-    /* Coming soon */
     .coming-soon {
       flex-direction: column;
       opacity: 0.6;
@@ -114,9 +108,60 @@
       margin-bottom: 6px;
     }
 
+    .reviews-section {
+      margin-top: 80px;
+    }
+
+    .reviews-title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #f8fafc;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .review-card {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 22px;
+      padding: 25px;
+      text-align: left;
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(96, 165, 250, 0.4);
+    }
+
+    .review-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #93c5fd;
+    }
+
+    .review-text {
+      line-height: 1.7;
+      color: #cbd5e1;
+      font-size: 0.97rem;
+    }
+
+    .stars {
+      color: #fbbf24;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
     footer {
-      margin-top: 50px;
+      margin-top: 70px;
       font-size: 0.9rem;
+      color: #94a3b8;
     }
 
     a {
@@ -128,26 +173,38 @@
       text-decoration: underline;
     }
 
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .store-btn,
+      .coming-soon {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
   </style>
 </head>
 
 <body>
+
   <div class="container">
 
     <h1>MOT Booking Helper</h1>
 
-    <p>
+    <p class="subtitle">
       MOT Booking Helper is an independent mobile application designed to help users organise
       and track MOT appointments in Northern Ireland. The app provides quick access
-      to official motoring websites and appointment information.
-    </p>
-
-    <p>
+      to official motoring websites, reminders, booking tools and appointment information.
+      <br><br>
       MOT Booking Helper is not affiliated with the Driver &amp; Vehicle Agency (DVA).
-    </p>
-
-    <p>
-      MOT Booking Helper is part of the Digital Vehicle Apps Group.
+      <br><br>
+      Part of the Digital Vehicle Apps Group.
     </p>
 
     <div class="button-grid">
@@ -162,10 +219,10 @@
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
       </a>
 
-      <!-- Microsoft Coming Soon -->
+      <!-- Microsoft -->
       <div class="coming-soon">
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg">
-        <span>Coming Soon</span>
+        <span>Windows Version Coming Soon</span>
       </div>
 
       <!-- YouTube -->
@@ -173,10 +230,67 @@
         <svg viewBox="0 0 24 24">
           <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-5.8ZM9.6 15.7V8.3l6.3 3.7-6.3 3.7Z"/>
         </svg>
-        <span>Watch on YouTube</span>
+        <span>Watch Tutorial Videos</span>
       </a>
 
     </div>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+
+      <h2 class="reviews-title">⭐ Trusted by Dealers Across Northern Ireland</h2>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">JS Motors</div>
+          <div class="review-text">
+            “Great app, didn't think we needed it until we used it for the trial period —
+            now we can't do without it!”
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">MBT Autos</div>
+          <div class="review-text">
+            “Exactly what we needed to keep track of appointments. Best feature is the
+            one-click appointment change with all details copied to the phone clipboard.
+            Genius!”
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">CB Trade Sales</div>
+          <div class="review-text">
+            “Perfect for car sales — we haven't missed an appointment since using this.
+            Absolute bargain at £9.99.”
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">Cars & Vans Direct</div>
+          <div class="review-text">
+            “Everything in one place and easy to find. The reminders have saved us
+            more than once from a no-show.”
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <div class="review-name">Knock Hill Mechanical Services</div>
+          <div class="review-text">
+            “Easy to use with everything you need just one click away.
+            So easy and so useful.”
+          </div>
+        </div>
+
+      </div>
+
+    </section>
 
     <footer>
       <p>Contact: <a href="mailto:dvapp.ni@gmail.com">dvapp.ni@gmail.com</a></p>
@@ -184,5 +298,6 @@
     </footer>
 
   </div>
+
 </body>
 </html>
